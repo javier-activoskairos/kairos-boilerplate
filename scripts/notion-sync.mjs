@@ -94,7 +94,8 @@ async function upsertWeb() {
 
 async function createDeploy(webId) {
   const shortSha = (COMMIT_SHA ?? "").slice(0, 7);
-  const title = `${shortSha} ${COMMIT_MSG ?? ""}`.trim().slice(0, 200) || shortSha;
+  const firstLine = (COMMIT_MSG ?? "").split("\n")[0].trim();
+  const title = `${shortSha} ${firstLine}`.trim().slice(0, 200) || shortSha;
 
   const properties = {
     Nombre: { title: [{ text: { content: title } }] },

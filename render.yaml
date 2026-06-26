@@ -1,0 +1,23 @@
+# Render Blueprint — Fábrica de Webs Kairos
+# Despliega el sitio como Web Service Node y activa previews por PR.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: kairos-boilerplate
+    runtime: node
+    plan: free
+    region: frankfurt # EU
+    branch: main # rama de producción
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false # definir por entorno en el dashboard de Render
+
+# Previews automáticas: cada Pull Request genera un entorno efímero.
+previews:
+  generation: automatic

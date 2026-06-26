@@ -1,0 +1,20 @@
+{
+  "Metadata": {
+    "title": "Kairos Boilerplate",
+    "description": "Plantilla base de la Fábrica de Webs de Activos Kairos."
+  },
+  "Home": {
+    "badge": "Fábrica de Webs Kairos",
+    "title": "Plantilla base lista para producir",
+    "subtitle": "Next.js + TypeScript + Tailwind + shadcn/ui, multi-idioma y desplegable en Render. Clona, cambia los tokens de marca y publica.",
+    "ctaPrimary": "Empezar",
+    "ctaSecondary": "Documentación",
+    "featuresTitle": "Incluido de fábrica",
+    "feature1Title": "Multi-idioma",
+    "feature1Body": "Rutas i18n con next-intl en el mismo repo.",
+    "feature2Title": "Design system",
+    "feature2Body": "Tokens de marca y componentes shadcn/ui.",
+    "feature3Title": "Deploy + previews",
+    "feature3Body": "Render con preview por rama y producción en main."
+  }
+}

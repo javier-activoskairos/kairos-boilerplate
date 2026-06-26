@@ -1,0 +1,20 @@
+{
+  "Metadata": {
+    "title": "Kairos Boilerplate",
+    "description": "Modèle de base de l'Usine à Sites d'Activos Kairos."
+  },
+  "Home": {
+    "badge": "Usine à Sites Kairos",
+    "title": "Modèle de base prêt à livrer",
+    "subtitle": "Next.js + TypeScript + Tailwind + shadcn/ui, multilingue et déployable sur Render. Clonez, changez les tokens de marque et publiez.",
+    "ctaPrimary": "Commencer",
+    "ctaSecondary": "Documentation",
+    "featuresTitle": "Inclus par défaut",
+    "feature1Title": "Multilingue",
+    "feature1Body": "Routage i18n avec next-intl dans le même dépôt.",
+    "feature2Title": "Design system",
+    "feature2Body": "Tokens de marque et composants shadcn/ui.",
+    "feature3Title": "Déploiement + previews",
+    "feature3Body": "Render avec previews par branche et production sur main."
+  }
+}

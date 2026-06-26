@@ -1,0 +1,39 @@
+name: Notion Sync
+
+# Sincroniza el estado del repo con el panel de control en Notion (Fábrica de Webs).
+# Se dispara en cada push a main y, manualmente, desde la pestaña Actions.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Evita ejecuciones solapadas para el mismo repo.
+concurrency:
+  group: notion-sync-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Sincronizar a Notion
+        env:
+          # Secrets a definir en Settings → Secrets and variables → Actions.
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }} # PLACEHOLDER: integración interna Notion
+          NOTION_WEBS_DB: ${{ secrets.NOTION_WEBS_DB }} # PLACEHOLDER: data source [AKW] - Webs
+          REPO_NAME: ${{ github.event.repository.name }}
+          REPO_URL: ${{ github.event.repository.html_url }}
+          COMMIT_SHA: ${{ github.sha }}
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+          BRANCH: ${{ github.ref_name }}
+        run: node scripts/notion-sync.mjs
